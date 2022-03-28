@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment { 
         registry = "rashmigarg16/application" 
-        registryCredential = 'rashmi' 
+        registryCredential = 'rashmi-dockerhub' 
         dockerImage = '' 
     }    
     tools { 
