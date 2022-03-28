@@ -6,7 +6,7 @@ pipeline{
         dockerImage = '' 
     }    
     tools { 
-        maven 'maven3'
+        maven 'maven 3.8.4' 
     }
     stages
        {
