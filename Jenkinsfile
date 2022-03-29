@@ -33,19 +33,20 @@ pipeline{
                 steps { 
                     script { 
                         dockerImage = docker.build registry + ":$GIT_COMMIT-$BUILD_NUMBER"
-                        docker.withRegistry( '', registryCredential ) { 
-                            dockerImage.push() 
+                         
                     }
+                
                 } 
+                
             }
-//             stage('Deploy our image') { 
-//                 steps { 
-//                     script { 
-//                         docker.withRegistry( '', registryCredential ) { 
-//                             dockerImage.push() 
-//                         }
-//                     } 
-//                 }
+            stage('Deploy our image') { 
+                steps { 
+                    
+                       docker.withRegistry( '', registryCredential ) { 
+                            dockerImage.push() 
+                       
+                    } 
+                }
             stage('Deploy on k8s') { 
                 steps {
                             sh "kubectl apply -f kubernetes --namespace=finalcapstone --kubeconfig=/home/knoldus/.kube/config"
