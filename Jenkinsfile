@@ -46,7 +46,7 @@ pipeline{
                             dockerImage.push('latest') 
                        }
                     } 
-                }
+                } }
          
            stage("Deploy on k8s") { 
              steps { 
@@ -57,5 +57,5 @@ pipeline{
                                 
             }  
            
-              }
+              
 }
