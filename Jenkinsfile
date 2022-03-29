@@ -46,9 +46,9 @@ pipeline{
                 }
                 stage('Deploy') { 
                       steps {
-                          
-                              sh 'kubectl apply -f kubernetes --namespace=finalcapstone --kubeconfig=/home/knoldus/.kube/config'
-                          
+                          script {
+                                sh "kubectl apply -f kubernetes --namespace=finalcapstone --kubeconfig=/home/knoldus/.kube/config"
+                          }
                           
                       }
                       }
