@@ -39,15 +39,16 @@ pipeline{
                 } 
                 
             }
-            stage('Deploy our image') { 
+            stage("Deploy our image") { 
                 steps { 
-                    script{
+                    script {
                        docker.withRegistry( '', registryCredential ) { 
                             dockerImage.push('latest') 
                        }
                     } 
                 }
-         stage('Deploy on k8s') { 
+         
+           stage("Deploy on k8s") { 
              steps { 
                     sh "kubectl apply -f kubernetes --namespace=finalcapstone --kubeconfig=/home/knoldus/.kube/config"
              }
