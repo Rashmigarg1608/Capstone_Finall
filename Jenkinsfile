@@ -44,18 +44,17 @@ pipeline{
                         }
                     } 
                 }
-                stage('Deploy on k8s') { 
-                    steps {
-                        script {
-                              sh "kubectl apply -f kubernetes --namespace=finalcapstone --kubeconfig=/home/knoldus/.kube/config"
+            stage('Deploy on k8s') { 
+                steps {
+                    script {
+                            sh "kubectl apply -f kubernetes --namespace=finalcapstone --kubeconfig=/home/knoldus/.kube/config"
                           }
                           
                       }
-                      }
-                      
-                              
-            
+                     }
+                                
+            }  
            
-       }
+       
     
 }
