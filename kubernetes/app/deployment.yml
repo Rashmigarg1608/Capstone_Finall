@@ -16,7 +16,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
       - name: myapp
-        image: rashmigarg/application
+        image: rashmigarg16/application
         imagePullPolicy: IfNotPresent
         env:
           - name: MONGODB_TABLE
