@@ -50,7 +50,7 @@ pipeline{
          
            stage("Deploy on k8s") { 
              steps { 
-                  sshagent([credentials: 'rashmi-gks']){
+                  sshagent(['rashmi-gks']){
                         sh "kubectl apply -f kubernetes --namespace=finalcapstone --kubeconfig=/home/knoldus/.kube/config"
                   }
              }
