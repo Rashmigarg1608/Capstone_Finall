@@ -50,7 +50,9 @@ pipeline{
          
            stage("Deploy on k8s") { 
              steps { 
-                    sh "kubectl apply -f kubernetes --namespace=finalcapstone --kubeconfig=/home/knoldus/.kube/config"
+                  withKubeConfig([credentialsId: 'rashmi-ks']){
+                        sh "kubectl apply -f kubernetes --namespace=finalcapstone --kubeconfig=/home/knoldus/.kube/config"
+                  }
              }
                           
                                  }
